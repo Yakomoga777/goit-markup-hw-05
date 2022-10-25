@@ -15,6 +15,7 @@
   --overlay-background-works-color: rgba(47, 48, 58, 0.8);
   --overlay-background-portfolio-color: rgba(33, 150, 243, 0.9);
   --backdrop-color: #00000033;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 
   --s: #eeeeee;
 
@@ -22,14 +23,15 @@
 }
 
 /* ЗАГАЛЬНІ ПРАВИЛА */
-html {
+
+/* html {
   box-sizing: border-box;
-}
-*,
+} */
+/* *,
 *::before,
 *::after {
-  box-sizing: inherit;
-}
+  box-sizing: border-box;
+} */
 
 a {
   text-decoration: none;
@@ -145,6 +147,9 @@ header {
 
 .contact-menu a {
   color: var(--text-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
 }
 .contact-menu {
   margin-left: auto;
@@ -154,6 +159,17 @@ header {
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
+
+.nav-menu a {
+  color: var(--title-black-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
+}
+.address-list a {
+  transition-property: color;
+  transition-duration: 250ms;
+}
 .nav-menu a:hover,
 .nav-menu a:focus,
 .contact-menu a:hover,
@@ -162,6 +178,7 @@ header {
 .address-list a:focus {
   color: var(--blue-color);
 }
+
 .current {
   position: relative;
   color: var(--blue-color);
@@ -249,10 +266,13 @@ header {
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 .hero-btn:hover,
 .hero-btn:focus {
-  color: var(--white-color);
   background-color: var(--hover-hero-btn-color);
 }
 .btn {
@@ -394,11 +414,12 @@ section.team {
   width: 44px;
   height: 44px;
 }
-
-.social-icon:hover,
-.social-icon:focus {
-  fill: var(--white-color);
+.social-icon {
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
+
 .social-link {
   display: flex;
   justify-content: center;
@@ -407,6 +428,10 @@ section.team {
   height: inherit;
   border-radius: 50%;
   fill: var(--social-icon-color);
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 .social-link:hover,
 .social-link:focus {
@@ -437,6 +462,10 @@ section.team {
   border: 1px solid var(--social-icon-color);
   border-radius: 4px;
   fill: var(--social-icon-color);
+
+  transition-property: fill, border;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .customers-link:hover {
@@ -502,6 +531,10 @@ footer .logo {
   border-radius: 50%;
 
   cursor: pointer;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
@@ -578,7 +611,20 @@ footer .logo {
 
   color: var(--title-black-color);
   background: var(--background-gray);
+
+  transition-property: background-color color box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
 .filter-list {
   display: flex;
   justify-content: center;
@@ -610,26 +656,34 @@ footer .logo {
 
 .works-list-image {
   position: relative;
+  overflow: hidden;
 }
 
 .works-list-overlay-text {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 100%;
   opacity: 0;
 
   font-size: 18px;
   line-height: 1.56;
   padding: 63px 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 
   color: var(--white-color);
 
   background-color: var(--overlay-background-portfolio-color);
+
+  transition-property: top;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
-.works-list-link:hover p,
-.works-list-link:focus p {
+.works-list-link:hover .works-list-overlay-text,
+.works-list-link:focus .works-list-overlay-text {
   opacity: 1;
+  top: 0;
 }
 
 .works-list {
@@ -646,13 +700,7 @@ footer .logo {
 .works-list-item:not(:nth-last-child(-n + 3)) {
   margin-bottom: 30px;
 }
-.filter-btn:hover,
-.filter-btn:focus {
-  background-color: var(--blue-color);
-  color: var(--white-color);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
-}
+
 .title-container {
   padding: 20px 24px;
   background: #ffffff;
