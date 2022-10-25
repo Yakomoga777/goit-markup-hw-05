@@ -60,7 +60,7 @@
       <div class="hero">
         <div class="container">
           <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-          <button class="hero-btn btn" type="button">Замовити послугу</button>
+          <button data-modal-open class="hero-btn btn" type="button">Замовити послугу</button>
         </div>
       </div>
 
@@ -423,14 +423,16 @@
     </footer>
 
     <!-- MODAL WINDOW -->
-    <div class="backdrop is-hidden">
+    <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <div class="icon-place">
+        <button data-modal-close class="modal-close">
           <svg class="modal-icon" wigth="11" height="11">
             <use href="./images/symbol-defs.svg#icon-cross"></use>
           </svg>
-        </div>
+        </button>
       </div>
     </div>
+    <!-- JS SCRIPT -->
+    <script src="./js/modal.js"></script>
   </body>
 </html>
