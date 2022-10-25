@@ -468,9 +468,11 @@ section.team {
   transition-timing-function: var(--cubic);
 }
 
-.customers-link:hover {
+.customers-link:hover,
+.customers-link:focus {
   fill: var(--blue-color);
   border: var(--blue-color) solid 1px;
+  outline: inherit;
 }
 
 /** ========================================FOOTER================================== */
