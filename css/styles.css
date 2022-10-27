@@ -335,6 +335,7 @@ header {
 .our-works-list {
   display: flex;
   justify-content: center;
+  gap: 30px;
 }
 
 .list-item:not(:last-child) {
@@ -554,10 +555,15 @@ footer .logo {
   width: 100%;
   height: 100%;
   top: 0;
+  opacity: 1;
 
   background-color: var(--backdrop-color);
+
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
-.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -566,17 +572,25 @@ footer .logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 528px;
   height: 581px;
-
   border-radius: 4px;
-
   background-color: var(--background-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  transform: translate(-50%, -50%) scale(1);
+
+  transition-property: transform border-radius;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.5);
+  border-radius: 100%;
+}
+
 .modal-close {
   position: absolute;
   top: 8px;
@@ -588,8 +602,7 @@ footer .logo {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
-.modal-close {
-}
+
 .modal-icon {
   position: absolute;
   top: 50%;
@@ -617,7 +630,7 @@ footer .logo {
   color: var(--title-black-color);
   background: var(--background-gray);
 
-  transition-property: background-color color box-shadow;
+  transition-property: background-color, color, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: var(--cubic);
 }
