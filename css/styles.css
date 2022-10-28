@@ -150,6 +150,7 @@ header {
 
   transition-property: color;
   transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 .contact-menu {
   margin-left: auto;
@@ -161,14 +162,14 @@ header {
 }
 
 .nav-menu a {
-  color: var(--title-black-color);
-
   transition-property: color;
   transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 .address-list a {
   transition-property: color;
   transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 .nav-menu a:hover,
 .nav-menu a:focus,
@@ -347,7 +348,7 @@ header {
 }
 .overlay-text {
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
 
   display: flex;
   align-items: center;
@@ -359,9 +360,9 @@ header {
   outline: var(--outline);
 
   font-weight: 700;
-  line-height: 16px;
+  line-height: 1.14;
   text-align: center;
-  letter-spacing: 0.03em;
+
   text-transform: uppercase;
   color: var(--white-color);
 }
@@ -415,11 +416,6 @@ section.team {
   width: 44px;
   height: 44px;
 }
-.social-icon {
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: var(--cubic);
-}
 
 .social-link {
   display: flex;
@@ -430,7 +426,7 @@ section.team {
   border-radius: 50%;
   fill: var(--social-icon-color);
 
-  transition-property: background-color;
+  transition-property: background-color, fill;
   transition-duration: 250ms;
   transition-timing-function: var(--cubic);
 }
@@ -694,7 +690,7 @@ footer .logo {
 
   background-color: var(--overlay-background-portfolio-color);
 
-  transition-property: top;
+  transition-property: top, opacity;
   transition-duration: 250ms;
   transition-timing-function: var(--cubic);
 }
